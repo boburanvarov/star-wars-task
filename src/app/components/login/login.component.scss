@@ -1,0 +1,42 @@
+.login-page-wrapper {
+  min-height: 100vh;
+}
+
+.welcome-section {
+  background-color: hsla(48, 100%, 91%, 0.45);
+
+  .title p {
+    font-family: 'Poppins', sans-serif;
+    font-size: 2rem;
+  }
+}
+
+.login-section {
+  label {
+    font-family: 'Source Sans Pro', sans-serif;
+  }
+
+  .title {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.5rem;
+  }
+}
+
+.login-button {
+  font-size: 0.9rem;
+}
+
+.black-bottom {
+  height: 10px;
+  background-color: #000;
+}
+
+.copyright, .copyright a {
+  color: hsla(216, 29%, 63%, 0.96);
+  text-decoration: none;
+}
+
+.black-bottom, .copyright {
+  bottom: 0;
+  position: absolute;
+}

@@ -1,0 +1,14 @@
+.nav-link {
+  font-weight: 500;
+  color: #a3abb7;
+
+  &.active {
+    color: hsla(52, 100%, 50%, 1);
+    border-right: 4px solid hsla(52, 100%, 50%, 1);
+
+    .link-text {
+      font-size: 1rem;
+      color: black;
+    }
+  }
+}

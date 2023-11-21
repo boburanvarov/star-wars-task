@@ -1,0 +1,27 @@
+<div class="container">
+  <div class="card mb-4">
+    <div class="card-body">
+      <ng-container *ngIf="planet$ | async as planet; else loading">
+        <h1 class="mb-4">{{ planet.name }}</h1>
+
+        <p>
+          <strong>Climate:</strong> {{ planet.climate }}<br />
+          <strong>Diameter:</strong> {{ planet.diameter }}<br />
+          <strong>Gravity:</strong> {{ planet.gravity }}<br />
+          <strong>Orbital Period:</strong> {{ planet.orbital_period }}<br />
+          <strong>Population:</strong> {{ planet.population }}<br />
+          <strong>Rotation Period:</strong> {{ planet.rotation_period }}<br />
+          <strong>Surface Water:</strong> {{ planet.surface_water }}<br />
+          <strong>Terrain:</strong> {{ planet.terrain }}
+        </p>
+
+        <app-all-lists *ngIf="planet.residentsData.length" [entries]="planet.residentsData" heading="Characters" route="dashboard/characters"></app-all-lists>
+
+        <app-all-lists *ngIf="planet.filmsData.length" [entries]="planet.filmsData" heading="Films" route="dashboard/films"></app-all-lists>
+      </ng-container>
+      <ng-template #loading>
+        <app-spinner></app-spinner>
+      </ng-template>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="card mb-4">
+    <div class="card-body">
+      <ng-container *ngIf="film$ | async as film; else loading">
+        <h1 class="mb-4">{{ film.title }}</h1>
+        <p>{{ film.opening_crawl }}</p>
+        <p>
+          <strong>Release Date:</strong> {{ film.release_date | date: 'longDate' }}<br />
+          <strong>Directors:</strong> {{ film.director }}<br />
+          <strong>Producers:</strong> {{ film.producer }}
+        </p>
+
+        <app-all-lists *ngIf="film.charactersData.length" [entries]="film.charactersData" heading="Characters" route="dashboard/characters"></app-all-lists>
+
+        <app-all-lists *ngIf="film.planetsData.length" [entries]="film.planetsData" heading="Planets" route="dashboard/planets"></app-all-lists>
+
+        <app-all-lists *ngIf="film.speciesData.length" [entries]="film.speciesData" heading="Species" route="dashboard/species"></app-all-lists>
+
+        <app-all-lists *ngIf="film.starshipsData.length" [entries]="film.starshipsData" heading="Starships" route="dashboard/starships"></app-all-lists>
+
+        <app-all-lists *ngIf="film.vehiclesData.length" [entries]="film.vehiclesData" heading="Vehicles" route="dashboard/vehicles"></app-all-lists>
+      </ng-container>
+      <ng-template #loading>
+        <app-spinner></app-spinner>
+      </ng-template>
+    </div>
+  </div>
+</div>

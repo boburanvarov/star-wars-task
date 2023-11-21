@@ -1,0 +1,40 @@
+<div class="row">
+  <nav class="bg-transparent sidebar border-right col-auto" aria-label="">
+    <div class="sidebar-sticky">
+      <div class="logo d-flex justify-content-center my-5 cursor-pointer" (click)="navigateToDashboard()">
+        <img [src]="logoUrl" alt="logo" class="w-50">
+      </div>
+      <ul class="nav flex-column">
+        <app-nav-link *ngFor="let item of navLinks" [link]="item"></app-nav-link>
+      </ul>
+    </div>
+  </nav>
+
+  <main role="main" class="col">
+    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center border-bottom py-2 no-gutters">
+      <div class="dashboard-title px-4 d-flex align-items-center">
+        <h2 class="h5 p-0 m-0">{{currentViewPlaceholder | titlecase}}</h2>
+      </div>
+      <div class="notifications-section d-flex align-items-center">
+        <div class="comments cursor-pointer">
+          <i class="far fa-comments icon mx-3 mt-2"></i>
+        </div>
+        <div class="notifications cursor-pointer">
+          <i class="far fa-bell icon mx-3 mt-2"></i>
+          <span class="badge badge-pill badge-danger new-notifications">&nbsp;</span>
+        </div>
+        <div class="logout cursor-pointer" (click)="logout()">
+          <i class="fas fa-sign-out-alt icon mx-3 mt-2"></i>
+        </div>
+        <div class="user">
+          <img [src]="userImageUrl" alt="" class="img-fluid user-image mx-5">
+        </div>
+      </div>
+    </div>
+
+
+    <div class="row content-area p-5 w-100">
+      <router-outlet></router-outlet>
+    </div>
+  </main>
+</div>

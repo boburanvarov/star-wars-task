@@ -1,0 +1,5 @@
+export enum PAGINATION {
+  NEXT = 'NEXT',
+  PREVIOUS = 'PREVIOUS',
+  CURRENT = 'CURRENT'
+}

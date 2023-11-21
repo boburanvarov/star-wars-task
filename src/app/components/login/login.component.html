@@ -1,0 +1,64 @@
+<div class="row login-page-wrapper">
+  <div class="col welcome-section d-flex justify-content-center align-items-center">
+    <div class="row w-100">
+      <div class="col-md-10 mx-auto">
+        <div class="title my-5 py-5">
+          <p class="mt-5 mb-0">Welcome to Star Wars</p>
+          <p class="m-0">The Clone Wars</p>
+        </div>
+        <div class="rocket my-5">
+          <img [src]="rocketUrl" class="img-fluid" alt="">
+        </div>
+      </div>
+    </div>
+    <div class="black-bottom w-100"></div>
+  </div>
+
+  <div class="col login-section d-flex align-items-center w-100">
+    <div class="row w-100">
+      <div class="col-md-9 col-xl-8 mx-auto">
+        <p class="title mb-5">Sign in to your account to continue</p>
+        <form [formGroup]="loginForm" autocomplete="off">
+          <div class="form-group my-4">
+            <label for="loginEmail">Email address</label>
+            <input type="email" class="form-control"
+              [class.is-invalid]="loginForm.controls.email.touched && loginForm.controls.email.errors" id="loginEmail"
+              placeholder="Enter email address" formControlName="email" (keyup)="markAsTouched2('email')">
+            <small class="small text-danger" *ngIf="loginForm.controls.email.touched && loginForm.controls.email.errors">Email is
+              required and
+              must be a
+              valid email</small>
+          </div>
+          <div class="form-group my-4">
+            <label for="loginPassword">Password</label>
+            <input type="password" class="form-control"
+              [class.is-invalid]="loginForm.controls.password.touched && loginForm.controls.password.errors" id="loginPassword"
+              placeholder="Enter strong password" formControlName="password" (keyup)="markAsTouched2('password')">
+            <small class="small text-danger"
+              *ngIf="loginForm.controls.password.touched && loginForm.controls.password.errors">Password is required,
+              must be at least 8 letters and must contain a number, an uppercase letter, and a lowercase letter. Special characters
+              are <span class="font-weight-bold">NOT</span> allowed</small>
+          </div>
+          <button type="button" (click)="navigateToDashboard() " [disabled]="loginForm.invalid"
+            class="btn btn-lg btn-dark btn-block my-5 login-button">Sign In</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="copyright d-flex justify-content-between w-100">
+      <p class="small m-0">All rights reserved &copy; {{currentYear}} STAR WARS</p>
+      <div class="d-flex">
+        <div class="small m-0">
+          <a class="pr-2 cursor-pointer" (click)="navigateToPrivacyPage()">Privacy</a>|
+          <a class="pl-2" (click)="navigateToTermsAndConditionsPage()">Terms</a>
+        </div>
+        <a class="small ml-5 m-0">English <i class="fas fa-caret-down"></i></a>
+      </div>
+    </div>
+  </div>
+  <div class="col moon-section">
+    <div class="moon d-flex justify-content-end">
+      <img [src]="moonUrl" alt="" class="m-5">
+    </div>
+  </div>
+</div>
